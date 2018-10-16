@@ -1,0 +1,63 @@
+class A
+{
+	public static void main(String[]args) {
+		
+	int num=4;
+	
+	if(num%2 == 0) {
+	
+		System.out.println("even");
+	}
+	
+	else {
+		
+		System.out.println("odd");
+	}
+	}
+
+}
+
+
+class B{
+	
+	public static void main(String[] args) {
+		int a,b,c ;
+		
+		 a=5;
+		 b=8;
+		 c=6;
+		 
+		 if(a>b && a>c){
+			 
+			 System.out.println("a");
+		 }
+		 
+		 else if(b>c) {
+			 
+			 System.out.println("b");
+		 }
+		 
+		 else {
+			 
+			 System.out.println("c");
+		 }
+		 
+	}
+	
+
+}
+
+
+A  B  $(AND)
+
+T  T   T
+T  F   F
+F  T   F
+F  F   F
+
+
+A  B   ||(OR)
+T  T   T
+T  F   T
+F  T   T
+F  F   F

@@ -1,0 +1,61 @@
+
+//Switch case
+
+class A{
+	
+	public static void main(String [] args) {
+		
+		int i=4;
+		
+		switch(i)
+		{
+		
+		case 0:
+			
+			System.out.println("zero");
+			break;
+			
+		case 1:
+			System.out.println("one");
+			break;
+			
+			
+		case 2:
+			System.out.println("four");
+			break;
+			
+			default:
+				
+				System.out.println("some number");
+				
+				
+		
+		}
+		
+	}
+}
+
+class B{
+	
+	public static void main(String[] args) {
+		
+		String s= "sss";
+		
+		switch (s)
+		{
+		case "hi":
+			System.out.println("hi");
+		break;
+		
+		case "hello":
+			System.out.println("hello");
+			
+			break;
+			
+			default:
+				
+			System.out.println("aa");
+		}
+		
+	}
+}

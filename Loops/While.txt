@@ -1,0 +1,33 @@
+// While loop is first check the condition next it will print the output
+
+class A{
+	
+	public static void main(String[]args) {
+		
+		  int i=1;
+		  
+		  while(i<10) {
+		  
+			  
+			  System.out.println(i); 
+			  i++ ;
+			  
+		  }
+		  
+}
+}
+
+class B{
+	
+	public static void main(String[]args) {
+		
+		int i= 1;
+		
+		while(true) { // it prints infinitive output
+			System.out.println(i); 
+			  i++ ;
+			  	
+			
+		}
+	}
+}

@@ -1,0 +1,36 @@
+
+class A{
+	
+	public static void main(String[]args) {
+		
+		int i,j;
+		 i=5;
+	
+		
+		//ternory operator
+		// Syntax 
+		// variable x=(expression) ? value if true : value if false
+	
+		j = (i==5) ? 20:30;
+		
+		System.out.println("value of j is" + j);
+		
+		j =(i==6 )? 20:30;
+		
+		System.out.println("value of j is" + j);
+	}
+}
+ //print hello world with out using semicolon
+
+class B
+{
+	public static void main(String []args) {
+		
+		if(System.out.printf("Hello World")== null) {
+			
+		}
+		
+	}
+	
+	
+}
