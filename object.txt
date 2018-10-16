@@ -1,0 +1,105 @@
+//object creation
+
+
+/*class Student {
+
+	int id;
+	String name;
+	
+}
+
+class Student1{
+	
+	
+	public static void main(String[] args) {
+		
+		Student s1 =new Student();
+		Student s2 =new Student();
+		
+		s1.id=14;
+		s1.name="afaf";
+		s2.id=15;
+		s2.name="faff";
+		
+
+		System.out.println(s1.id +""+ s1.name);
+		
+		System.out.println(s2.id +""+ s2.name);
+	}
+}*/
+
+//object and class initialization through object
+
+class emp{
+	
+	int id;
+	String name;
+	float salary;
+	void insert(int i,String n,float s) {
+		id=i;
+		name=n;
+		salary=s;
+		
+	}
+	void display() {
+		
+		System.out.println(id+""+name+""+salary);
+		
+	}
+}
+class emp1{
+	public static void main(String[] args) {
+		emp e1=new emp();
+		emp e2=new emp();
+		emp e3=new emp();
+		e1.insert(101, "mamatha",40000);
+		e2.insert(102,"priya",47000);
+		e3.insert(103,"lavanya",80000 );
+		e1.display();
+		e2.display();
+		e3.display();
+	
+	}
+}
+
+//anonymous object
+
+class anonymous {
+	
+	void fact(int n) {
+		int fact=1;
+		for(int i=0;i<1;i++)
+		fact= fact*i;
+		
+	}
+	public static void main(String[] args) {
+		new anonymous().fact(5);//calling method with anonymous object
+	}
+}
+
+//Creating multiple objects by one type only
+
+class Rectangle{
+	
+	int length;
+	int width;
+	void insert(int l,int w) {
+		length=l;
+		width=w;
+		
+	
+	}
+	void display() {
+		System.out.println(length*width);
+	}
+}
+class Rectangle1{
+	public static void main(String[] args) {
+		Rectangle r1=new Rectangle(),r2=new Rectangle();//Creating multiple objects
+		r1.insert(12, 5);
+		r2.insert(11, 6);
+		r1.display();
+		r2.display();
+		
+	}
+}

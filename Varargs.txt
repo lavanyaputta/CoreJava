@@ -1,0 +1,21 @@
+class VarargsExample1 {
+
+	public static void main(String args[]) {
+
+		display(4, "lavany", "hrbke");// four arguments
+	}
+
+	static void display(int a, String... b) {
+		System.out.println("var args method");
+
+	}
+
+	static void display(String a) {
+		System.out.println("one arg method");
+		System.out.println(a);
+	}
+
+	static void display(String a, String b) {
+		System.out.println("two args method");
+	}
+}

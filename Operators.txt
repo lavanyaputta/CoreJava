@@ -1,0 +1,88 @@
+nnb          
+class A{
+	
+	public static void main(String[] arg) {
+		 //int i=5;
+		 
+	//	int i= 0B1000000;
+		
+		// System.out.println(i);
+		
+		//preincreement i++, and postincrement ++i
+		
+		//int i=7;
+	
+		//int j=++i;
+	
+		//System.out.println(j + ":" + i);
+		
+		//Bitwise operator----and  & - oR | operator 
+
+		//1 0 --1
+		//0 0 --0
+		//1 1--1
+		//0 1--1
+
+		
+		//int a= 25;//1 1 0 0 1
+		//int b=15;// 0 1 1 1 1
+		
+		//int c=a| b;
+		//System.out.println(c);	
+		
+		//int c=a& b;
+		//System.out.println(c);	
+		
+		
+		//Left Shift (<<)operator Right Shift(>>) operator
+		
+		//int a= 25;//1 1 0 0 1
+		//int b = a << 3;  // adding 00 in last binary format
+		
+		
+		//int b =a >> 3; //deleting last two from binary digits
+	//System.out.println(b);
+		
+		//Boolean
+		
+		/*boolean b = true;
+		b= !b;
+		System.out.println(b);*/
+		
+	//unsigned right shift
+	int i=-25;
+	System.out.println(-25>>>3);//0001111111001
+	
+	int a=8;//1000
+	int b=a<<2;//100000
+	
+	
+	
+
+}
+}
+
+//ternary operator
+class OperatorExample{  
+public static void main(String args[]){  
+int a=10;  
+int b=5;  
+//condition?true:false
+//10<5
+int min=(a<b)?a:b; 
+
+System.out.println(min);  
+}}  
+
+//short circuite operator
+
+class Operator{
+	 
+	
+	public static void main(String[] args) {
+		int i=10;
+		int j=20;
+		System.out.println(j>30&&i++>5);
+	}
+	 
+}

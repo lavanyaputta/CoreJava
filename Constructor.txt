@@ -1,0 +1,132 @@
+package com.test.examples;
+
+//Default Constructor
+class A{
+	
+int id;
+String name;
+
+
+void display()//Default Constructor
+{
+	System.out.println(id+""+name);
+	}
+
+public static void main(String[] args) {
+	
+	A obj=new A();
+	
+	obj.display();
+}
+}
+//parametrized constructor
+
+class Student{
+	
+	int id;
+	String name;
+
+	Student(int i,String n){
+	id =i;
+	name=n;
+	
+}
+	void display() {
+		System.out.println(id+"" +name);
+	}
+}
+class Student1{
+	
+	public static void main(String[] args) {
+		
+		Student s1=new Student(111,"hghgf");
+		Student s2=new Student(222,"vcc");
+		s1.display();
+		s2.display();
+	}
+}
+
+//overloading constructor in java
+
+class Person{
+	
+	int id;
+	String name;
+	int age;
+	Person(int i,String n){
+		id=i;
+		name=n;
+	
+	}
+	Person(int i,String n,int a){
+		id=i;
+		name=n;
+		age=a;
+	}
+void display() {
+	
+	System.out.println(id+""+name+""+age);
+}
+}
+class Person1{
+	
+	public static void main(String[] args) {
+		
+		Person p1=new Person(1,"sada",56);
+		Person p2=new Person(2,"fdff",52);
+		p1.display();
+		p2.display();
+		
+		
+	}
+}
+
+//Copy constructor
+class Student6{  
+    int id;  
+    String name;  
+   
+    Student6(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    
+    Student6(Student6 s){  
+    id = s.id;  
+    name =s.name;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student6 s1 = new Student6(111,"Karan");  
+    Student6 s2 = new Student6(s1);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+//Copying values without constructor
+class Student7{  
+    int id;  
+    String name;  
+   
+    Student7(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    
+    Student7(){  
+     
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student7 s1 = new Student7(111,"Karan");  
+    Student7 s2 = new Student7(); 
+   
+    s2.id=s1.id;  
+    s2.name=s1.name;  
+    s1.display();  
+    s2.display(); 
+   }  
+}  
