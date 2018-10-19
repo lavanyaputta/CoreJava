@@ -1,0 +1,137 @@
+
+//super is used to refer immediate parent class instance variable.
+class Animal {
+	String colour = "black";
+
+}
+
+class Dog extends Animal {
+	String colour = "white";
+
+	void printColour() {
+		System.out.println(colour);
+		System.out.println(super.colour);
+	}
+}
+
+class Text {
+	public static void main(String[] args) {
+		Dog d = new Dog();
+		d.printColour();
+	}
+
+}
+
+// super can be used to invoke parent class method
+
+class Animal1 {
+	void eat() {
+		System.out.println("eating...");
+	}
+}
+
+class Dog1 extends Animal1 {
+	void eat() {
+		System.out.println("eating bread...");
+	}
+
+	void bark() {
+		System.out.println("barking...");
+	}
+
+	void work() {
+		super.eat();
+		bark();
+	}
+}
+
+class TestSuper2 {
+	public static void main(String args[]) {
+		Dog1 d = new Dog1();
+		d.work();
+	}
+}
+
+// super is used to invoke parent class constructor.
+
+class Animal2 {
+	Animal2() {
+		System.out.println("animal is created");
+	}
+}
+
+class Dog2 extends Animal2 {
+	Dog2() {
+		super();
+		System.out.println("dog is created");
+	}
+}
+
+class Cat extends Animal2 {
+	Cat() {
+		super();
+		System.out.println("Cat is created");
+	}
+}
+
+class TestSuper3 {
+	public static void main(String args[]) {
+		Cat c = new Cat();
+	}
+}
+
+// with out super keyword
+
+class Animal4 {
+	Animal4() {
+		System.out.println("animal is created");
+	}
+}
+
+class Dog3 extends Animal4 {
+	Dog3() {
+		System.out.println("dog is created");
+	}
+}
+
+class Cat2 extends Animal4 {
+	Cat2() {
+		System.out.println("dog is created");
+	}
+}
+
+class TestSuper4 {
+	public static void main(String args[]) {
+		Cat2 c = new Cat2();
+	}
+}
+
+// real time
+class Person {
+	int id;
+	String name;
+
+	Person(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+}
+
+class Emp extends Person {
+	float salary;
+
+	Emp(int id, String name, float salary) {
+		super(id, name);// reusing parent constructor
+		this.salary = salary;
+	}
+
+	void display() {
+		System.out.println(id + " " + name + " " + salary);
+	}
+}
+
+class TestSuper5 {
+	public static void main(String[] args) {
+		Emp e1 = new Emp(1, "ankit", 45000f);
+		e1.display();
+	}
