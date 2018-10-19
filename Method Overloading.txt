@@ -1,0 +1,92 @@
+//Method Overloading
+//changing no. of arguments
+
+class Adder {
+	static int add(int a, int b) {
+		return a + b;
+	}
+
+	static int add(int a, int b, int c) {
+		return a + b + c;
+	}
+}
+
+class TestOverloading {
+	public static void main(String[] args) {
+		System.out.println(Adder.add(11, 11));
+		System.out.println(Adder.add(11, 11, 11));
+	}
+}
+
+
+//changing data type of arguments
+
+class Adder1 {
+	static int add(int a, int b) {
+		return a + b;
+	}
+
+	static double add(double a, double b,double c) {
+		return a + b+c ;
+	}
+}
+
+class TestOverloading1 {
+	public static void main(String[] args) {
+		System.out.println(Adder1.add(11, 11));
+		System.out.println(Adder1.add(11.5, 11.7,11.8));
+	}
+}
+
+//Can we overload java main() method?
+
+//yes
+
+class TestOverloading4 {
+	public static void main(String[] args) {
+		System.out.println("main with String[]");
+	}
+
+	public static void main(String args) {
+		System.out.println("main with String");
+	}
+
+	public static void main() {
+		System.out.println("main without args");
+	}
+}
+
+// Example of Method Overloading with Type Promotion in case of ambiguity
+
+class OverloadingCalculation1 {
+	void sum(int a, long b) {
+		System.out.println(a + b);
+	}
+
+	void sum(int a, int b, int c) {
+		System.out.println(a + b + c);
+	}
+
+	public static void main(String args[]) {
+		OverloadingCalculation1 obj = new OverloadingCalculation1();
+		obj.sum(20, 20);// now second int literal will be promoted to long
+		obj.sum(20, 20, 20);
+
+	}
+}
+
+
+class A{
+	
+	void sum(int a,int b) {
+		System.out.println("int get invoked");
+	}
+	void sum(long a,long b) {
+		System.out.println("long get onvoked");
+	}
+	public static void main(String[] args) {
+		A obj=new A();
+		obj.sum(40, 40);
+		
+	}
+}

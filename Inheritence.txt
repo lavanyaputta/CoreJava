@@ -1,0 +1,95 @@
+
+//Single Inheritence
+class Animal{
+	void eat() {
+		System.out.println("eating");
+		{
+	}
+}
+}
+class Dog extends Animal{
+	void bark() {
+		System.out.println("barking");
+	}
+}
+class Single{
+	public static void main(String[] args) {
+		Dog d=new Dog();
+		d.bark();
+		d.eat();
+	
+	}
+
+ {
+	
+	
+}
+}
+//multileavel inheritence
+class Animal1{
+	void eat() {
+		System.out.println("eating");
+		{
+	}
+}
+}
+class Dog1 extends Animal1{
+	void bark() {
+		System.out.println("barking");
+	}
+}
+
+class BabyDog extends Dog1{
+	
+	void weep() {
+		System.out.println("weeping");
+	}
+}
+class Multilevel{
+	public static void main(String[] args) {
+		BabyDog d=new BabyDog();
+		
+		d.bark();
+		d.eat();
+		d.weep();
+	
+	}
+
+ {
+
+
+//Hierarchical Inheritance
+class Animal2{
+			void eat() {
+				System.out.println("eating");
+				{
+			}
+		}
+		}
+		class Dog2 extends Animal2{
+			void bark() {
+				System.out.println("barking");
+			}
+		}
+
+		class Cat extends Animal2{
+			
+			void weep() {
+				System.out.println("weeping");
+			}
+		}
+		class Hierarchical {
+			public static void main(String[] args) {
+				Cat c =new Cat();
+				
+			//	c.bark();//error
+				c.eat();
+				c.weep();
+			
+			}
+
+	 {
+	
+	
+}
+}

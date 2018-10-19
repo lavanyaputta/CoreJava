@@ -1,0 +1,180 @@
+//this keyword
+class Student {
+	int rollno;
+	String name;
+	float fee;
+
+	Student(int rollno, String name, float fee) {
+		this.rollno = rollno;
+		this.name = name;
+		this.fee = fee;
+	}
+
+	void display() {
+		System.out.println(rollno + " " + name + " " + fee);
+	}
+}
+
+class TestThis1 {
+	public static void main(String args[]) {
+		Student s1 = new Student(111, "ankit", 5000f);
+		Student s2 = new Student(112, "sumit", 6000f);
+		s1.display();
+		s2.display();
+	}
+}
+
+//
+class Student2 {
+	int rollno;
+	String name;
+	float fee;
+
+	public Student2(int rollno, String name, float fee) {
+		super();
+		this.rollno = rollno;
+		this.name = name;
+		this.fee = fee;
+	}
+
+	void display() {
+		System.out.println(rollno + " " + name + " " + fee);
+	}
+}
+
+class TestThis3 {
+	public static void main(String args[]) {
+		Student2 s1 = new Student2(111, "ankit", 5000f);
+		Student2 s2 = new Student2(112, "sumit", 6000f);
+		s1.display();
+		s2.display();
+	}
+}
+
+class Student3 {
+	int rollno;
+	String name;
+	float fee;
+
+	Student3(int r, String n, float f) {
+		rollno = r;
+		name = n;
+		fee = f;
+	}
+
+	void display() {
+		System.out.println(rollno + " " + name + " " + fee);
+	}
+}
+
+class TestThis4 {
+	public static void main(String args[]) {
+		Student3 s1 = new Student3(111, "ankit", 5000f);
+		Student3 s2 = new Student3(112, "sumit", 6000f);
+		s1.display();
+		s2.display();
+	}
+}
+
+/*class A {
+	void m() {
+		System.out.println("hello m");
+	}
+
+	void n() {
+		System.out.println("hello n");
+
+		this.m();
+	}
+}
+
+class TestThis5 {
+	public static void main(String args[]) {
+		A a = new A();
+		a.n();
+	}
+}*/
+
+
+
+/*class B {
+	B() {
+		System.out.println("hello a");
+	}
+
+	B(int x) {
+		this();
+		System.out.println(x);
+	}
+}
+
+class TestThis6 {
+	public static void main(String args[]) {
+		B a = new B(10);
+	}
+}*/
+
+
+
+
+/*class A {
+	A() {
+		this(5);
+		System.out.println("hello a");
+	}
+
+	A(int x) {
+		System.out.println(x);
+	}
+}
+
+class TestThis6 {
+	public static void main(String args[]) {
+		A a = new A();
+	}
+}*/
+
+class B {
+	A4 obj;
+
+	B(A4 obj) {
+		this.obj = obj;
+	}
+
+	void display() {
+		System.out.println(obj.data);// using data member of A4 class
+	}
+}
+
+class A4 {
+	int data = 10;
+
+	A4() {
+
+		B b = new B(this);
+
+		b.display();
+	}
+
+	public static void main(String args[]) {
+		A4 a = new A4();
+		System.out.println(a);
+	}
+}
+
+
+class A {
+	A getA() {
+		return this;
+	}
+
+	void msg() {
+		System.out.println("Hello java");
+	}
+}
+
+class Test1 {
+	public static void main(String args[]) {
+		new A().getA().msg();
+	}
+}
