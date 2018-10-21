@@ -1,0 +1,64 @@
+//Example of final variable
+class A {
+
+	final int a = 90;
+
+	void run() {
+		a = 200;// error we cannot extend the final variable
+
+	}
+
+	public static void main(String[] args) {
+		A obj = new A();
+		obj.run();
+	}
+}
+
+// Example of final method
+
+class B {
+	final void a() {
+		System.out.println("zzzz");
+	}
+
+	class C extends B {
+		void a() { // If you make any method as final, you cannot override it .error
+			System.out.println("aaaa");
+		}
+
+		public static void main(String[] args) {
+			C obj = new C();
+
+		}
+	}
+}
+
+// Java final class
+final class Bike { // If you make any class as final, you cannot extend it
+}
+
+class Honda1 extends Bike {
+	void run() {
+		System.out.println("running safely with 100kmph");
+	}
+
+	public static void main(String args[]) {
+		Honda1 honda = new Honda1();
+		honda.run();
+	}
+}
+
+// Can we initialize blank final variable?
+//Yes, but only in constructor.
+class Bike10 {
+	final int speedlimit;// blank final variable
+
+	Bike10() {
+		speedlimit = 70;
+		System.out.println(speedlimit);
+	}
+
+	public static void main(String args[]) {
+		new Bike10();
+	}
+}

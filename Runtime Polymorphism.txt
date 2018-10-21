@@ -1,0 +1,51 @@
+//Runtime Polymorphism
+class Bike {
+	void run() {
+		System.out.println("bike is running");
+	}
+}
+
+class Bullet extends Bike {
+
+	void run() {
+		System.out.println("bullet is running");
+	}
+
+	public static void main(String[] args) {
+		Bike b = new Bullet();// up casting ----b is reference variable it showing the subclass
+		b.run();
+	}
+}
+// Java Runtime Polymorphism with Data Member
+
+class Bike2 {
+	int speedlimit = 90;
+}
+
+class Honda3 extends Bike {
+	int speedlimit = 150;
+
+	public static void main(String args[]) {
+		Bike2 obj = new Honda3(); // Runtime polymorphism can't be achieved by data members.
+		System.out.println(obj.speedlimit);// 90
+	}
+}
+//output
+class Animal {
+	void eat() {
+		System.out.println("animal is eating...");
+	}
+}
+
+class Dog extends Animal {
+	void eat() {
+		System.out.println("dog is eating...");
+	}
+}
+
+class BabyDog1 extends Dog {
+	public static void main(String args[]) {
+		Animal a = new BabyDog1();
+		a.eat();
+	}
+}
