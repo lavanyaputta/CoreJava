@@ -1,0 +1,29 @@
+//Example of clone() method (Object cloning)
+class Student implements Cloneable{
+	 int n;
+	 String name;
+	 
+	 Student (int n,String name){
+		 
+		 this.n=n;
+		 this.name=name;
+	 }
+	 public Object clone()throws CloneNotSupportedException {
+		 return super.clone();
+	 }
+	 public static void main(String[] args) {
+		 try {
+			 
+			 Student s=new Student(111,"Lavanya");
+			 Student s2=(Student)s.clone();
+			 
+			 System.out.println(s.n+""+s.name);
+			 System.out.println(s2.n+""+s2.name);
+		 }
+		 catch(CloneNotSupportedException e) {
+			 
+			 
+		 }
+	 }
+}
+

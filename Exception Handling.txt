@@ -1,0 +1,150 @@
+//Exception Handling
+
+import java.io.IOException;
+
+class Exception {
+	public static void main(String[] args) {
+		try {
+			int data = 100 / 0;
+		} catch (ArithmeticException e) {
+			System.out.println(e);
+			System.out.println("aaaaafs");
+		}
+
+	}
+}
+
+class Excep6 {
+	public static void main(String args[]) {
+		try {
+			try {
+				System.out.println("going to divide");
+				int b = 39 / 0;
+			} catch (ArithmeticException e) {
+				System.out.println(e);
+			}
+
+			try {
+				System.out.println("going to divide");
+				int a[] = new int[5];
+				a[5] = 4;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println(e);
+			}
+
+			System.out.println("other statement");
+		} catch (NullPointerException e) {
+			System.out.println("handeled");
+		}
+
+		System.out.println("normal flow..");
+	}
+}
+
+class TestMultipleCatchBlock1 {
+	public static void main(String args[]) {
+		try {
+			int a[] = new int[5];
+			a[5] = 10;
+		} catch (NullPointerException e) {
+			System.out.println("common task completed");
+		} catch (ArithmeticException e) {
+			System.out.println("task1 is completed");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("task 2 completed");
+		}
+		System.out.println("rest of the code...");
+	}
+}
+
+class TestFinallyBlock1 {
+	public static void main(String args[]) {
+		try {
+			int data = 25 / 0;
+			System.out.println(data);
+		} catch (NullPointerException e) {
+			System.out.println(e);
+		} finally {
+			System.out.println("finally block is always executed");
+		}
+		System.out.println("rest of the code...");
+	}
+}
+
+class TestThrow1 {
+	static void validate(int age) {
+		if (age < 18)
+			throw new ArithmeticException("not valid");
+		else
+			System.out.println("welcome to vote");
+	}
+
+	public static void main(String args[]) {
+		validate(13);
+		System.out.println("rest of the code...");
+	}
+}
+
+class TestExceptionPropagation2 {
+	void m() {
+		int data = 25 / 0;
+	}
+
+	void n() {
+		m();
+	}
+
+	void p() {
+		try {
+			n();
+		} catch (NullPointerException e) {
+			System.out.println("exception handeled");
+		}
+	}
+
+	public static void main(String args[]) {
+		TestExceptionPropagation2 obj = new TestExceptionPropagation2();
+		obj.p();
+		System.out.println("normal flow");
+	}
+}
+
+class TestExceptionPropagation1 {
+	void m() {
+		int data = 50 / 0;
+	}
+
+	void n() {
+		m();
+	}
+
+	void p() {
+		try {
+			n();
+		} catch (NullPointerException e) {
+			System.out.println("exception handled");
+		}
+	}
+
+	public static void main(String args[]) {
+		TestExceptionPropagation1 obj = new TestExceptionPropagation1();
+		obj.p();
+		System.out.println("normal flow...");
+	}
+}
+
+
+
+class M {
+	void method() throws IOException {
+		throw new IOException("device error");
+	}
+}
+
+class Testthrows4 {
+	public static void main(String args[]) throws IOException {// declare exception
+		M m = new M();
+		m.method();
+
+		System.out.println("normal flow...");
+	}

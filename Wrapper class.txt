@@ -1,0 +1,25 @@
+//Wrapper class Example: Primitive to Wrapper
+class A{
+	public static void main(String[] args) {
+		int a=20;
+		Integer i=new Integer(a);////converting int into Integer  
+		
+		Integer j=a;////autoboxing, now compiler will write Integer.valueOf(a) internally 
+		
+		System.out.println(a+""+i+""+j);
+	}
+}
+
+//
+
+class B{
+	public static void main(String[] args) {
+		
+		Integer a=new Integer(30);
+		int i =a.intValue();
+		int b=a.intValue();
+			int c=a;
+			System.out.println(a+""+b+""+c);
+	}
+	
+}
