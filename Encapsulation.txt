@@ -1,0 +1,350 @@
+  
+
+
+public class MotorBike {
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+
+
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		MotorBike ducati = new MotorBike();
+		MotorBike honda = new MotorBike();
+		
+		ducati.start();
+		honda.start();
+	}
+
+}
+
+
+=================================================
+public class MotorBike {
+
+	//state
+	int speed;
+ 	
+	//behaviour
+	
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		MotorBike ducati = new MotorBike();
+		MotorBike honda = new MotorBike();
+		
+		ducati.start();
+		honda.start();
+		
+		ducati.speed = 100;
+		honda.speed = 80;
+		
+		ducati.speed = 20;
+		honda.speed = 0;
+	}
+
+}
+
+======================================================================
+public class MotorBike {
+
+	//state
+	private int speed; //member variable
+	
+	//behaviour
+	//method
+	//inputs - int speed
+	//outputs - void
+	//name - setSpeed
+	void setSpeed(int speed) { //local variable
+		this.speed = speed;
+	}
+	
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		MotorBike ducati = new MotorBike();
+		MotorBike honda = new MotorBike();
+		
+		ducati.start();
+		honda.start();
+		
+		ducati.setSpeed(100);
+		honda.setSpeed(80);
+		
+		ducati.setSpeed(20);
+		honda.setSpeed(0);
+	}
+
+}
+
+=====================================================
+
+public class MotorBike {
+
+	//state
+	private int speed; //member variable
+		
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		MotorBike ducati = new MotorBike();
+		MotorBike honda = new MotorBike();
+		
+		ducati.start();
+		honda.start();
+		
+		ducati.setSpeed(100);
+		System.out.println(ducati.getSpeed());
+		
+		//honda.setSpeed(80);
+		System.out.println(honda.getSpeed());
+	}
+
+}
+
+===========================================================
+
+public class MotorBike {
+	//state
+	private int speed; //member variable
+		
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		if(speed > 0 )
+			this.speed = speed;
+	}
+
+	public void increaseSpeed(int howMuch) {
+		setSpeed(this.speed + howMuch);
+	}
+
+	public void decreaseSpeed(int howMuch) {
+		setSpeed(this.speed - howMuch);
+	}
+	
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		MotorBike ducati = new MotorBike();
+		MotorBike honda = new MotorBike();
+		
+		ducati.start();
+		honda.start();
+		
+		ducati.setSpeed(100);
+		
+		ducati.increaseSpeed(100);
+				
+		honda.increaseSpeed(100);
+		
+		ducati.decreaseSpeed(250);
+		
+		honda.decreaseSpeed(250);
+		
+		System.out.println(ducati.getSpeed());
+		
+		System.out.println(honda.getSpeed());
+	}
+
+
+==================================================================
+
+public class MotorBike {
+	//state
+	private int speed; //member variable
+	
+	MotorBike(int speed) {
+		this.speed = speed;
+	}
+	
+		
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		if(speed > 0 )
+			this.speed = speed;
+	}
+
+	public void increaseSpeed(int howMuch) {
+		setSpeed(this.speed + howMuch);
+	}
+
+	public void decreaseSpeed(int howMuch) {
+		setSpeed(this.speed - howMuch);
+	}
+	
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		
+		MotorBike ducati = new MotorBike(100);
+		
+		MotorBike honda = new MotorBike(200);
+		
+		System.out.println(ducati.getSpeed());
+		
+		System.out.println(honda.getSpeed());
+
+		
+		ducati.start();
+
+		honda.start();
+		
+		//ducati.setSpeed(100);
+		
+		ducati.increaseSpeed(100);
+				
+		honda.increaseSpeed(100);
+		
+		ducati.decreaseSpeed(250);
+		
+		honda.decreaseSpeed(250);
+		
+		System.out.println(ducati.getSpeed());
+		
+		System.out.println(honda.getSpeed());
+	}
+
+}
+=====================================================================
+
+public class MotorBike {
+	//state
+	private int speed; //member variable
+	
+	MotorBike() {
+		this(5);
+	}
+	
+	MotorBike(int speed) {
+		this.speed = speed;
+	}
+			
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		if(speed > 0 )
+			this.speed = speed;
+	}
+
+	public void increaseSpeed(int howMuch) {
+		setSpeed(this.speed + howMuch);
+	}
+
+	public void decreaseSpeed(int howMuch) {
+		setSpeed(this.speed - howMuch);
+	}
+	
+	void start() {
+		System.out.println("Bike Started");
+	}
+}
+
+
+public class MotorBikeRunner {
+
+	public static void main(String[] args) {
+		
+		MotorBike ducati = new MotorBike(100);
+		
+		MotorBike honda = new MotorBike(200);
+		
+		MotorBike somethingElse = new MotorBike();
+		
+		System.out.println(ducati.getSpeed());
+		
+		System.out.println(honda.getSpeed());
+		
+		System.out.println(somethingElse.getSpeed());
+
+		
+		ducati.start();
+
+		honda.start();
+		
+		//ducati.setSpeed(100);
+		
+		ducati.increaseSpeed(100);
+				
+		honda.increaseSpeed(100);
+		
+		ducati.decreaseSpeed(250);
+		
+		honda.decreaseSpeed(250);
+		
+		System.out.println(ducati.getSpeed());
+		
+		System.out.println(honda.getSpeed());
+	}
+
+}
+
+**
+Encapsulation in java 
+1.Binding the data with the methods 
+2.getters and setters 
+3.datahiding 
+
+
+Encapsulation can be defined as a process of a wrapping code and data together into a single unit.
+
+Class is representing an object….and properties of an object always should be in secure format..
+for example if you want to access properties information you have to communicate .it is possible only with the help of the methods.
+
+We can use methods with that we can apply conditions, we can  prevent bad code from other classes from putting bad data into your object. 
+if you have methods you can have validations around your object
+
+
+
+
+
+
+
