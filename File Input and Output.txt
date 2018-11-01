@@ -1,0 +1,209 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+/* class FileOutputStreamExample {
+	public static void main(String args[]) {
+		try {
+			FileOutputStream fout = new FileOutputStream("Pictures");
+			
+			String s="welocme to javatpoint";
+			byte[] b= s.getBytes();
+		fout.write(65);
+			fout.close();
+			System.out.println("success...");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}*/
+ 
+ //Java FileInputStream example 1: read single character
+ /*class DataStream{
+	 public static void main(String[] args) {
+		 try {
+			 FileInputStream fin=new FileInputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc");
+			 int i=fin.read();
+			 System.out.print((char)i);
+		 }
+		 catch(Exception e) {
+			 System.out.println(e);
+		 }
+	 }
+ }*/
+ 
+//Java FileInputStream example 2: read all characters
+ 
+ /*class DataStream{
+	 public static void main(String[] args) {
+		 try {
+			 FileInputStream fin=new FileInputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc");
+			 int i=0;
+			 while((i=fin.read())!=-1) {
+				 System.out.print((char)i);
+			 }
+		
+		 }
+		 catch(Exception e) {
+			 System.out.println(e);
+		 }
+	 }
+ }*/
+
+
+//Example of BufferedOutputStream class
+/*import java.io.*; 
+class BufferedOutputStream{
+	public static void main(String[] args)throws Exception {
+		FileOutputStream fout=new FileOutputStream("");
+		BufferedOutputStream bout=new BufferedOutputStream(fout);
+	  String s="Welcome lavanya";
+	  byte b[]=s.getBytes();  
+	 bout.write(b);
+	 bout.flush();
+	 bout.close();
+	 fout.close();
+	 System.out.println("Success");
+	  
+	}
+	
+}*/
+
+/*import java.io.*;  
+class BufferedOutputStreamExample{    
+public static void main(String args[])throws Exception{    
+     FileOutputStream fout=new FileOutputStream("C://Users//Lavanya Putta//Pictures//lavanya.txt");    
+     BufferedOutputStream bout=new BufferedOutputStream(fout);    
+     String s="Welcome to javaTpoint.";    
+     byte b[]=s.getBytes();    
+     bout.write(b);    
+     bout.flush();    
+     bout.close();    
+     fout.close();    
+     System.out.println("success");    
+}    
+}  */
+
+/*class BufferedInputStream{
+	public static void main(String[] args) {
+		
+		try {
+			FileInputStream fin= new FileInputStream("C://Users//Lavanya Putta//Pictures//lavanya.txt");
+			BufferedInputStream bin=new BufferedInputStream(fin);
+			int i=0;
+			while((i=bin.read())!=-1) {
+				System.out.println((char)i);
+			}
+			fin.close();
+			bin.close();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}*/
+	
+
+import java.io.*;  
+class BufferedInputStreamExample{    
+ public static void main(String args[]){    
+  try{    
+    FileInputStream fin=new FileInputStream("C://Users//Lavanya Putta//Pictures//lavanya.txt");    
+    BufferedInputStream bin=new BufferedInputStream(fin);    
+    int i;    
+    while((i=bin.read())!=-1){    
+     System.out.print((char)i);    
+    }    
+    bin.close();    
+    fin.close();    
+  }catch(Exception e){System.out.println(e);}    
+ }    
+}  
+
+
+//Java SequenceInputStream Example
+import java.io.*;
+
+class InputStreamExample {
+	public static void main(String args[]) throws Exception {
+		FileInputStream input1 = new FileInputStream("C://Users//Lavanya Putta//Pictures//lavanya.txt");
+		FileInputStream input2 = new FileInputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc.txt");
+		SequenceInputStream inst = new SequenceInputStream(input1, input2);
+		int j;
+		while ((j = inst.read()) != -1) {
+			System.out.print((char) j);
+		}
+		inst.close();
+		input1.close();
+		input2.close();
+	}
+}
+
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.SequenceInputStream;
+
+//Example of Java SequenceInputStream
+class Input1 {
+	public static void main(String args[]) throws Exception {
+		FileInputStream fin1 = new FileInputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc.txt");
+		FileInputStream fin2 = new FileInputStream("Pictures.txt");
+		FileOutputStream fout = new FileOutputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc.txt");
+		SequenceInputStream sis = new SequenceInputStream(fin1, fin2);
+		int i;
+		while ((i = sis.read()) != -1) {
+			fout.write(i);
+		}
+		sis.close();
+		fout.close();
+		fin1.close();
+		fin2.close();
+		System.out.println("Success..");
+	}
+}
+
+// Example of Java ByteArrayOutputStream
+
+class ByteArray {
+	public static void main(String[] args) throws Exception {
+		FileOutputStream fout1 = new FileOutputStream("C:\\Users\\Lavanya Putta\\Pictures\\abc.txt");
+		FileOutputStream fout2 = new FileOutputStream("Pictures.txt");
+
+		ByteArrayOutputStream bout = new ByteArrayOutputStream();
+
+		bout.write(65);
+		bout.writeTo(fout1);
+		bout.writeTo(fout2);
+
+		bout.flush();
+		bout.close();
+		System.out.println("Success");
+	}
+}
+
+// Example of Java ByteArrayInputStream
+
+ class ReadExample {
+	public static void main(String[] args) throws IOException {
+		byte[] buf = { 35, 36, 37, 38 };
+
+		ByteArrayInputStream byt = new ByteArrayInputStream(buf);
+		int k = 0;
+		while ((k = byt.read()) != -1) {
+			
+			char ch = (char) k;
+			System.out.println("ASCII value of Character is:" + k + "; Special character is: " + ch);
+		}
+	}
+}
+
+
+
+
+
+
+
+

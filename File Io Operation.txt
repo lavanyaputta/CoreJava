@@ -1,0 +1,234 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
+
+ class FOISDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		FileOutputStream fos=new FileOutputStream("C:\\Users\\Lavanya Putta\\Desktop\\ram.txt");
+		fos.write('C');
+		fos.write(102);
+		fos.write(67);
+		fos.flush();
+		fos.close();
+		System.out.println("data entered");
+		FileInputStream fis=new FileInputStream("C:\\Users\\Lavanya Putta\\Desktop\\ram.txt");
+		int i=0;
+		while((i=fis.read())!=-1) {
+			System.out.println(i);
+		}
+	}
+
+}
+
+ 
+ 
+ 
+ class DIDODemo {
+		public static void main(String[] args) throws IOException {
+			FileOutputStream fos=new FileOutputStream("C:\\Users\\Lavanya Putta\\Desktop\\ram3.txt");
+			DataOutputStream dos=new DataOutputStream(fos);
+			dos.writeBoolean(true);
+			dos.writeByte(65);
+			dos.writeInt(456);
+			dos.writeChar('l');
+			dos.flush();
+			dos.close();
+			System.out.println("data inserted........");
+			
+			FileInputStream fis=new FileInputStream("C:\\Users\\Lavanya Putta\\Desktop\\ram3.txt");
+			DataInputStream dis=new DataInputStream(fis);
+			System.out.println(dis.readBoolean());
+			System.out.println(dis.readByte());
+			System.out.println(dis.readInt());
+			System.out.println(dis.readChar());
+			
+		}
+
+	}
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BufferedReaderDemo {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("enter some data");
+		String s = br.readLine();
+		System.out.println(s);
+		System.out.println("enter some data");
+		int i = br.read();
+		System.out.println(i);
+	}
+
+}
+
+public class BufferedReaderDemoFromFile {
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Lavanya Putta\\Desktop\\ram.txt"));
+		String s=br.readLine();
+		System.out.println(s);
+		StringTokenizer st=new StringTokenizer(s, " ");
+		while(st.hasMoreTokens()) {
+			System.out.println(st.nextToken());
+		}
+		
+		StringTokenizer st1=new StringTokenizer(s, " ");
+		String s1=" ";
+		while(st1.hasMoreTokens()) {
+			s1=s1+st1.nextToken();
+			System.out.println(s1);
+		}
+		
+		/*StringTokenizer st2=new StringTokenizer(s,"");
+		int total=0;
+		while(st2.hasMoreTokens()) {
+			total=total+Integer.parseInt(st2.nextToken());
+			System.out.println(total);
+		}*/
+	}
+
+}
+
+
+public class ByteArrayOutputDemo {
+
+	public static void main(String[] args) throws IOException {
+		
+		FileOutputStream fout1=new FileOutputStream("test1.text");
+		FileOutputStream fout2=new FileOutputStream("test2.text");
+		ByteArrayOutputStream  b=new ByteArrayOutputStream();
+		b.write(100);
+		b.write('a');
+		b.write('z');
+		b.writeTo(fout1);
+		b.writeTo(fout2);
+		b.flush();
+		b.close();
+		
+		FileInputStream fin1=new FileInputStream("test1.text");
+		FileInputStream fin2=new FileInputStream("test2.text");
+		SequenceInputStream sis=new SequenceInputStream(fin1, fin2);
+		
+		int i=0;
+		while((i=sis.read())!=-1) {
+			System.out.println(i);
+		}
+		
+		
+	}
+
+}
+
+
+import java.io.Externalizable;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
+class Student3 implements Externalizable{
+	int sid;
+	String sname;
+	int age;
+	public Student3() {
+		
+	}
+
+	public Student3(int sid, String sname, int age) {
+		super();
+		this.sid = sid;
+		this.sname = sname;
+		this.age = age;
+	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		System.out.println("control comes here.......");
+		String s="sam";
+		out.writeObject(s);
+		int age=28;
+		out.writeObject(age);
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+		String s=(String)in.readObject();
+		sname=s;
+		int i=(Integer)in.readObject();
+		age=i;
+	}
+	
+}
+
+public class ExternalizationDemo {
+
+	public static void main(String[] args) throws IOException {
+		FileOutputStream out=new FileOutputStream("C:\\Users\\Lavanya Putta\\Desktop\\aaa.txt");
+		ObjectOutputStream oout=new ObjectOutputStream(out);
+		Student3 s=new Student3(101,"sai",26);
+		oout.writeObject(s);
+		System.out.println("serialization completed");
+
+	}
+
+}
+
+
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintStream;
+import java.io.Serializable;
+
+class Student implements Serializable {
+	int sid=101;
+	String sname="venkat";
+	static int age=24;
+	transient String password="lavanaya";
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sname=" + sname + ", age=" + age + ", password=" + password + "]";
+	}
+	
+	
+
+}
+
+class SerializationDemo {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		FileOutputStream fos=new FileOutputStream("C:\\Users\\Lavanya Putta\\Desktop\\Lavanya.txt");
+		ObjectOutputStream oos= new ObjectOutputStream(fos);
+		Student s=new Student();
+		oos.writeObject(s);
+		System.out.println("serialization completed");
+		
+		
+		
+		FileInputStream fis=new FileInputStream("C:\\Users\\Lavanya Putta\\Desktop\\Lavanya.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		System.out.println(obj);
+		System.out.println("deserialization completed");
+		
+	}
+}
+
+
+
+
+
+
+

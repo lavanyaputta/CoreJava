@@ -1,0 +1,111 @@
+//Java Member inner class
+
+class Outer {
+	private int data = 30;
+
+	class Inner {
+		void msg() {
+			System.out.println("data is " + data);
+		}
+	}
+
+	public static void main(String args[]) {
+		Outer obj = new Outer();
+		Outer.Inner in = obj.new Inner();
+		in.msg();
+	}
+}
+
+// Java Anonymous inner class using abstractclass
+
+abstract class Person {
+	abstract void eat();
+}
+
+class TestAnonymousInner {
+	public static void main(String args[]) {
+		Person p = new Person() {
+			void eat() {
+				System.out.println("nice fruits");
+			}
+		};
+		p.eat();
+	}
+}
+
+// Java anonymous inner class example using interface
+
+interface Person1 {
+	abstract void eat1();
+
+}
+
+class TestAnonymous {
+	public static void main(String args[]) {
+		Person1 p = new Person1() {
+			public void eat1() {
+				System.out.println("nice fruits");
+			}
+		};
+		p.eat1();
+	}
+}
+
+// Java Local inner class
+
+class A {
+	int data = 30;
+
+	void msg() {
+		class Inner {
+			void display() {
+				System.out.println("i am lavanya");
+
+			}
+		}
+		Inner i = new Inner();
+		i.display();
+	}
+
+	public static void main(String[] args) {
+		A obj = new A();
+		obj.msg();
+	}
+}
+
+// Java static nested class
+class TestOuter1 {
+	static int data = 30;
+
+	static class Inner {
+		void msg() {
+			System.out.println("data is " + data);
+		}
+	}
+
+	public static void main(String args[]) {
+		TestOuter1.Inner obj = new TestOuter1.Inner();
+		obj.msg();
+	}
+}
+
+// Java Nested Interface
+
+interface Showable {
+	void show();
+
+	interface Message {
+		void msg();
+	}
+}
+
+class Lavanya implements Showable.Message {
+	public void msg() {
+		System.out.println("Hello nested interface");
+	}
+
+	public static void main(String args[]) {
+		Showable.Message message = new Lavanya();// upcasting here
+		message.msg();
+	}
+}
